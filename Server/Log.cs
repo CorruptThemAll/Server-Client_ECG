@@ -1,10 +1,12 @@
-﻿namespace ECGPro;
+﻿using Server;
+
+namespace ECGPro;
 
 public class Log : IObserver
 {
-    private readonly ECGReadingConsumer _ecgReading;
+    private readonly ECGReader _ecgReading;
 
-    public Log(ECGReadingConsumer ecgReading)
+    public Log(ECGReader ecgReading)
     {
         _ecgReading = ecgReading;
     }

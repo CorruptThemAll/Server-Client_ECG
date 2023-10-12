@@ -1,12 +1,14 @@
-﻿namespace ECGPro;
+﻿using Server;
+
+namespace ECGPro;
 
 public class ECGContainer : IObserver
 {
     public List<int> ECGData { get; private set; } = new List<int>();
-    private readonly ECGReadingConsumer _ecgReading; 
+    private readonly ECGReader _ecgReading; 
     private readonly IProcessing _processing;
 
-    public ECGContainer(ECGReadingConsumer ecgReading, IProcessing processing)
+    public ECGContainer(ECGReader ecgReading, IProcessing processing)
     {
         _ecgReading = ecgReading;
         _processing = processing;

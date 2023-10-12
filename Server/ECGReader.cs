@@ -1,16 +1,20 @@
 ﻿using System.Collections.Concurrent;
+using ECGPro;
 
-namespace ECGPro;
+namespace Server;
 
-public class ECGReadingConsumer : Subject
+public class ECGReader : Subject
 {
-    private readonly BlockingCollection<DataContainer> _queue;
     public int Sample { get; private set; }
 
-    public ECGReadingConsumer(BlockingCollection<DataContainer> queue)
+    private readonly BlockingCollection<DataContainer> _queue;
+
+    public ECGReader(BlockingCollection<DataContainer> queue)
     {
         _queue = queue;
     }
+
+    public void Run() => Consume();
 
     public void Consume()
     {
@@ -19,7 +23,6 @@ public class ECGReadingConsumer : Subject
             if (_queue.TryTake(out var data))
             {
                 Sample = data.Sample;
-                Notify();
             }
         }
     }

@@ -13,6 +13,8 @@ public class ECGReadingProducer
         this.ecgSensor = ecgSensor;
     }
 
+    public void Run() => ReadSample();
+
     public void ReadSample()
     {
         var count = 500;
@@ -23,7 +25,7 @@ public class ECGReadingProducer
             dataContainer.Sample = sample;
             _queue.TryAdd(dataContainer);
             Thread.Sleep(2);
-            count--;
+            //count--;
         }
         _queue.CompleteAdding();
     }
