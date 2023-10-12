@@ -2,12 +2,12 @@
 
 namespace ECGPro;
 
-public class ECGReadingConsumer : Subject
+public class ECGReadingClientSocket : Subject
 {
     private readonly BlockingCollection<DataContainer> _queue;
     public int Sample { get; private set; }
 
-    public ECGReadingConsumer(BlockingCollection<DataContainer> queue)
+    public ECGReadingClientSocket(BlockingCollection<DataContainer> queue)
     {
         _queue = queue;
     }

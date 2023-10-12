@@ -2,9 +2,9 @@
 
 public class Log : IObserver
 {
-    private readonly ECGReadingConsumer _ecgReading;
+    private readonly ECGReadingClientSocket _ecgReading;
 
-    public Log(ECGReadingConsumer ecgReading)
+    public Log(ECGReadingClientSocket ecgReading)
     {
         _ecgReading = ecgReading;
     }

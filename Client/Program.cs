@@ -8,7 +8,7 @@ internal class Program
     {
         var queue = new BlockingCollection<DataContainer>();
         ECGReadingProducer ecgReadingProducer = new(queue, new ECGSensor());
-        ECGReadingConsumer ecgReadingConsumer = new(queue);
+        ECGReadingClientSocket ecgReadingConsumer = new(queue);
         Log log = new(ecgReadingConsumer);
         ECGContainer ecgContainer = new(ecgReadingConsumer, new Processing());
         ecgReadingConsumer.Attach(log);
